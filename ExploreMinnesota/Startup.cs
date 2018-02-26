@@ -19,13 +19,17 @@ namespace ExploreMinnesota
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, FeatureToggles features)
         {
             app.UseExceptionHandler("/error.html");
 
-            var configuration = new ConfigurationBuilder().AddEnvironmentVariables().Build();
+            var configuration = new ConfigurationBuilder()
+                                    .AddEnvironmentVariables()
+                                    .AddJsonFile(env.ContentRootPath + "/config.json")
+                                    .AddJsonFile(env.ContentRootPath + "/config.development.json", true)
+                                    .Build();
 
-            if (configuration.GetValue<bool>("EnableDeveloperExceptions"))
+            if (configuration.GetValue<bool>("FeatureToggles:EnableDeveloperExceptions"))
             {
                 app.UseDeveloperExceptionPage();
             }
