@@ -60,7 +60,7 @@ namespace ExploreMinnesota
             app.UseMvc(routes =>
             {
                 routes.MapRoute("Default", 
-                                "{controller=Home}/{action=Index}/{IdentityServiceCollectionExtensions?}");
+                                "{controller=Home}/{action=Index}/{id?}");
             });
 
             app.UseFileServer();
