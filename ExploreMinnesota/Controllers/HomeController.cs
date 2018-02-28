@@ -13,7 +13,7 @@ namespace ExploreMinnesota.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return new ContentResult { Content = "Welcome to my ASP.NET Core MVC Project" };
+            return View();
         }
     }
 }
