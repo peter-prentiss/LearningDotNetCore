@@ -3,6 +3,6 @@ namespace ExploreMinnesota
 {
     public class FeatureToggles
     {
-        public bool EnableDeveloperExtensions { get; set; }
+        public bool EnableDeveloperExceptions { get; set; }
     }
 }

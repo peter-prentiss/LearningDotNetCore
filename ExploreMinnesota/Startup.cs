@@ -12,10 +12,29 @@ namespace ExploreMinnesota
 {
     public class Startup
     {
+
+        private readonly IConfigurationRoot configuration;
+
+        public Startup(IHostingEnvironment env)
+        {
+            configuration = new ConfigurationBuilder()
+                                .AddEnvironmentVariables()
+                                .AddJsonFile(env.ContentRootPath + "/config.json")
+                                .AddJsonFile(env.ContentRootPath + "/config.development.json", true)
+                                .Build();
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<FeatureToggles>(x => new FeatureToggles
+            {
+                EnableDeveloperExceptions =
+                    configuration.GetValue<bool>("FeatureToggles:EnableDeveloperExceptions")
+            });
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -23,13 +42,7 @@ namespace ExploreMinnesota
         {
             app.UseExceptionHandler("/error.html");
 
-            var configuration = new ConfigurationBuilder()
-                                    .AddEnvironmentVariables()
-                                    .AddJsonFile(env.ContentRootPath + "/config.json")
-                                    .AddJsonFile(env.ContentRootPath + "/config.development.json", true)
-                                    .Build();
-
-            if (configuration.GetValue<bool>("FeatureToggles:EnableDeveloperExceptions"))
+            if (features.EnableDeveloperExceptions)
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -42,6 +55,12 @@ namespace ExploreMinnesota
                 }
 
                 await next();
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("Default", 
+                                "{controller=Home}/{action=Index}/{IdentityServiceCollectionExtensions?}");
             });
 
             app.UseFileServer();
