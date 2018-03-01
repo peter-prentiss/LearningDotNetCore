@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Welcome to Explore California</title>
+<title>Welcome to Explore Minnesota</title>
 <meta name="description" content="A lynda.com example of HTML5 and CSS3">
 <meta name="keywords" content="html5, css3, lynda, local storage, canvas, forms, semantics, web apps">
 <!--make sure mobile devices display the page at the proper scale	-->
@@ -17,7 +17,7 @@
   <header id="mainHeader"> <a href="/" title="home" class="logo">
    <!-- I need this div because IE is an affront to mankind-->
     <div>
-    <h1>Explore California</h1>
+    <h1>Explore Minnesota</h1>
     </div>
     </a>
     <nav id="siteNav">
@@ -42,7 +42,7 @@
         <li><a href="explorers.htm" title="Our community">Explorers <br /><span class="tagline">join our community</span></a>
           <ul>
             <li><a href="explorers/join.htm" title="join our community">Join the Explorers</a></li>
-            <li><a href="/blog" title="read our blog!">Read our Blog</a></li>
+            <li><a href="@Url.Action("Index", "Blog")" title="Read our blog!">Read our Blog!</a></li>
             <li><a href="explorers/gallery.htm" title="contributor photos">Tour Photos</a></li>
             <li><a href="_video/EC_podcast_full version.mov" title="check out our podcast">Video podcast</a></li>
           </ul>
@@ -70,7 +70,7 @@
 	<source src="_video/podcast_teaser.webm" type="video/webm" />
 	<source src="_video/podcast_teaser.theora.ogv"type="video/ogg" />
 </video>
-  <p class="videoText">Join us each month as we publish a new Explore California video podcast, with featured tours, customer photos, and some exctiing new features!<span class="accent"><a href="explorers/video.htm" title="Video Podcast">Watch the full video</a></span></p>
+  <p class="videoText">Join us each month as we publish a new Explore Minnesota video podcast, with featured tours, customer photos, and some exctiing new features!<span class="accent"><a href="explorers/video.htm" title="Video Podcast">Watch the full video</a></span></p>
   </article>
   </section>
     <aside id="secondaryContent">
@@ -121,7 +121,8 @@
       <li><a href="resources/faq.htm" title="Our home page">FAQ</a></li>
       <li><a href="support.htm" title="Need help?">Support</a></li>
       <li><a href="resources/legal.htm" title="The fine print">Legal</a></li><li><a href="login.htm">Login</a></li>
-    </ul>
+    </ul>             
+    <p>Copyright Peter Prentiss @DateTime.Now.Year</p>
   </section>
   <section id="companyInfo">
   <h1>Contact</h1>
