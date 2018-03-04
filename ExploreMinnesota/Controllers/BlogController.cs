@@ -17,9 +17,14 @@ namespace ExploreMinnesota.Controllers
             return View();
         }
 
-        [Route("blog/{year:min(2000)}/{month:range(1,12)}/{key}")]
+        [Route("{year:min(2000)}/{month:range(1,12)}/{key}")]
         public IActionResult Post(int year, int month, string key)
         {
+            ViewBag.Title = "My blog post";
+            ViewBag.Posted = DateTime.Now;
+            ViewBag.Author = "Peter Prentiss";
+            ViewBag.Body = "This is a blog post with lots of cool information and witty banter in it. Give me likes.";
+
             return View();
         }
     }
