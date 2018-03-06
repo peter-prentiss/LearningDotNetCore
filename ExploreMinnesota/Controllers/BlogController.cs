@@ -15,7 +15,25 @@ namespace ExploreMinnesota.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            var posts = new []
+            {
+                new Post
+                {
+                    Title = "My blog post",
+                    Posted = DateTime.Now,
+                    Author = "Peter Prentiss",
+                    Body = "This is a blog post with lots of cool information and witty banter in it. Give me likes.",
+                },
+                new Post
+                {
+                    Title = "My second blog post",
+                    Posted = DateTime.Now,
+                    Author = "Peter Prentiss",
+                    Body = "This is another blog post with lots of cool information and witty banter in it. Give me likes.",
+                }
+            };
+
+            return View(posts);
         }
 
         [Route("{year:min(2000)}/{month:range(1,12)}/{key}")]
