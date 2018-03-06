@@ -5,32 +5,32 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ExploreMinnesota.Models;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ExploreMinnesota.Controllers
 {
     [Route("blog")]
     public class BlogController : Controller
     {
-        // GET: /<controller>/
+        [Route("")]
         public IActionResult Index()
         {
-            var posts = new []
+            var posts = new[]
             {
                 new Post
                 {
                     Title = "My blog post",
                     Posted = DateTime.Now,
                     Author = "Peter Prentiss",
-                    Body = "This is a blog post with lots of cool information and witty banter in it. Give me likes.",
+                    Body = "This is a great blog post, don't you think?",
                 },
                 new Post
                 {
                     Title = "My second blog post",
                     Posted = DateTime.Now,
                     Author = "Peter Prentiss",
-                    Body = "This is another blog post with lots of cool information and witty banter in it. Give me likes.",
-                }
+                    Body = "This is ANOTHER great blog post, don't you think?",
+                },
             };
 
             return View(posts);
@@ -44,7 +44,7 @@ namespace ExploreMinnesota.Controllers
                 Title = "My blog post",
                 Posted = DateTime.Now,
                 Author = "Peter Prentiss",
-                Body = "This is a blog post with lots of cool information and witty banter in it. Give me likes.",
+                Body = "This is a great blog post, don't you think?",
             };
 
             return View(post);
