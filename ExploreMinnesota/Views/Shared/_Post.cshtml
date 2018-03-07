@@ -1,9 +1,10 @@
-﻿@model ExploreMinnesota.Models.Post
+﻿@inject ExploreMinnesota.Models.FormattingService Format
+@model ExploreMinnesota.Models.Post
 
 <article class="blog-post">
     <h1>@Model.Title</h1>
     <div class="details">
-        Posted <span>@Model.Posted</span> by <span>@Model.Author</span>
+        Posted <span>@Format.AsReadableDate(Model.Posted)</span> by <span>@Model.Author</span>
     </div>
     <div class="content">
         @Model.Body
