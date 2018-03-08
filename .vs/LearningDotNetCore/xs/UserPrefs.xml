@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{539B69A6-1CEA-40C8-B702-0910D1A767F1}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ExploreMinnesota/ViewComponents/MonthlySpecialsViewComponent.cs">
+    <Files>
+      <File FileName="ExploreMinnesota/Controllers/BlogController.cs" Line="55" Column="27" />
+      <File FileName="ExploreMinnesota/Views/Blog/Create.cshtml" Line="23" Column="55" />
+      <File FileName="ExploreMinnesota/ViewComponents/MonthlySpecialsViewComponent.cs" Line="16" Column="33" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ExploreMinnesota PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

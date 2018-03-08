@@ -8,7 +8,7 @@ namespace ExploreMinnesota.ViewComponents
     {
         private readonly SpecialsDataContext _specials;
 
-        public MonthlySpecialsViewComponent(SpecialsDataContext specials) => _specials = _specials;
+        public MonthlySpecialsViewComponent(SpecialsDataContext specials) => _specials = specials;
 
         public IViewComponentResult Invoke()
         {
