@@ -1,4 +1,7 @@
 ﻿{
+  "ConnectionStrings": {
+    "BlogDataContext": "Server=(localdb)\\mssqllocaldb;Database=ExploreMinnesota;TrustedConnection=True;"
+  },
   "FeatureToggles": {
     "EnableDeveloperExceptions": true
   }

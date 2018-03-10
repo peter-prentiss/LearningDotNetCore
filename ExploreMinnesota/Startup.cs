@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ExploreMinnesota.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExploreMinnesota
 {
@@ -37,6 +38,12 @@ namespace ExploreMinnesota
             {
                 EnableDeveloperExceptions =
                     configuration.GetValue<bool>("FeatureToggles:EnableDeveloperExceptions")
+            });
+
+            services.AddDbContext<BlogDataContext>(options =>
+            {
+                var connectionString = configuration.GetConnectionString("BlogDataContext");
+                options.UseSqlServer(connectionString);
             });
 
             services.AddMvc();
