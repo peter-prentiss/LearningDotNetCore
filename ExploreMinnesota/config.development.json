@@ -1,6 +1,7 @@
 ﻿{
   "ConnectionStrings": {
-    "BlogDataContext": "Server=(localdb)\\mssqllocaldb;Database=ExploreMinnesota;TrustedConnection=True;"
+    "BlogDataContext": "Server=(localdb)\\mssqllocaldb;Database=ExploreMinnesota;Trusted_Connection=True;",
+    "SpecialsDataContext": "Server=(localdb)\\mssqllocaldb;Database=ExploreMinnesota_Specials;Trusted_Connection=True;"
   },
   "FeatureToggles": {
     "EnableDeveloperExceptions": true

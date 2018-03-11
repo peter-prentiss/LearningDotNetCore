@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 using ExploreMinnesota.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,6 @@ namespace ExploreMinnesota
 {
     public class Startup
     {
-
         private readonly IConfigurationRoot configuration;
 
         public Startup(IHostingEnvironment env)
@@ -27,11 +27,9 @@ namespace ExploreMinnesota
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<SpecialsDataContext>();
-
             services.AddTransient<FormattingService>();
 
             services.AddTransient<FeatureToggles>(x => new FeatureToggles
@@ -46,12 +44,25 @@ namespace ExploreMinnesota
                 options.UseSqlServer(connectionString);
             });
 
+            services.AddDbContext<SpecialsDataContext>(options =>
+            {
+                var connectionString = configuration.GetConnectionString("SpecialsDataContext");
+                options.UseSqlServer(connectionString);
+            });
+
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, FeatureToggles features)
+        public void Configure(
+            IApplicationBuilder app,
+            IHostingEnvironment env,
+            ILoggerFactory loggerFactory,
+            FeatureToggles features
+        )
         {
+            loggerFactory.AddConsole();
+
             app.UseExceptionHandler("/error.html");
 
             if (features.EnableDeveloperExceptions)
@@ -62,20 +73,20 @@ namespace ExploreMinnesota
             app.Use(async (context, next) =>
             {
                 if (context.Request.Path.Value.Contains("invalid"))
-                {
                     throw new Exception("ERROR!");
-                }
 
                 await next();
             });
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute("Default", 
-                                "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("Default",
+                    "{controller=Home}/{action=Index}/{id?}"
+                );
             });
 
             app.UseFileServer();
+
         }
     }
 }

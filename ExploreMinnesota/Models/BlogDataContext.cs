@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExploreMinnesota.Models
@@ -7,7 +10,8 @@ namespace ExploreMinnesota.Models
     {
         public DbSet<Post> Posts { get; set; }
 
-        public BlogDataContext(DbContextOptions<BlogDataContext> options) : base(options)
+        public BlogDataContext(DbContextOptions<BlogDataContext> options)
+            : base(options)
         {
             Database.EnsureCreated();
         }

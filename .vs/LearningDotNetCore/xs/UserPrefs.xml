@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{539B69A6-1CEA-40C8-B702-0910D1A767F1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ExploreMinnesota/config.development.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ExploreMinnesota/Models/SpecialsDataContext.cs">
     <Files>
-      <File FileName="ExploreMinnesota/Controllers/BlogController.cs" Line="63" Column="31" />
+      <File FileName="ExploreMinnesota/Controllers/BlogController.cs" Line="60" Column="31" />
       <File FileName="ExploreMinnesota/Views/Blog/Create.cshtml" Line="25" Column="83" />
-      <File FileName="ExploreMinnesota/ViewComponents/MonthlySpecialsViewComponent.cs" Line="10" Column="9" />
-      <File FileName="ExploreMinnesota/Models/Post.cs" Line="18" Column="13" />
-      <File FileName="ExploreMinnesota/Models/BlogDataContext.cs" Line="8" Column="46" />
-      <File FileName="ExploreMinnesota/Startup.cs" Line="46" Column="54" />
-      <File FileName="ExploreMinnesota/config.development.json" Line="2" Column="21" />
+      <File FileName="ExploreMinnesota/Models/Post.cs" Line="45" Column="2" />
+      <File FileName="ExploreMinnesota/Models/BlogDataContext.cs" Line="6" Column="1" />
+      <File FileName="ExploreMinnesota/Startup.cs" Line="1" Column="1" />
+      <File FileName="ExploreMinnesota/config.development.json" Line="3" Column="105" />
+      <File FileName="ExploreMinnesota/Models/SpecialsDataContext.cs" Line="3" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
